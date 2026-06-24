@@ -4,24 +4,27 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Jade Gouvernel | Artist Portfolio</title>
-  <meta name="description" content="Jade Gouvernel is a New York-based artist, curator, and gallery professional working across fine art, design, exhibitions, and multidisciplinary projects.">
+  <meta name="description" content="Jade Gouvernel is a Brooklyn-based multidisciplinary artist working across painting, drawing, collage, photography, ceramics, film, voice, and body art.">
   <meta property="og:title" content="Jade Gouvernel | Artist Portfolio">
-  <meta property="og:description" content="Art-first portfolio and Shopify shop gateway for Jade Gouvernel.">
+  <!-- Shopify launch: restore the shop-focused description when the store is ready. -->
+  <!-- <meta property="og:description" content="A refined artist portfolio and shop gateway for Jade Gouvernel."> -->
+  <meta property="og:description" content="A refined artist portfolio for Jade Gouvernel.">
   <meta property="og:type" content="website">
-  <meta property="og:image" content="assets/images/hero-jade-work.png">
+  <meta property="og:image" content="assets/images/google/jade-about.jpg">
   <meta property="og:url" content="https://www.jadegouvernel.com">
-  <link rel="stylesheet" href="assets/css/styles.css">
+  <link rel="stylesheet" href="assets/css/styles.css?v=carousel-3">
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
 
   <header class="site-header" data-header>
+    <!-- Shopify launch: restore the announcement when the store is ready.
     <div class="announcement">
       <a href="https://your-shopify-store-url.com" target="_blank" rel="noopener">
-        <!-- TODO: Replace with final Shopify URL -->
-        PRINTS AND OBJECTS COMING SOON | SHOPIFY PREVIEW
+        PRINTS / COMMISSIONS / OBJECTS
       </a>
     </div>
+    -->
 
     <nav class="main-nav" aria-label="Primary navigation">
       <button class="menu-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="site-menu" data-menu-toggle>
@@ -29,306 +32,177 @@
         <span></span>
       </button>
 
-      <a class="brand" href="#home" aria-label="Jade Gouvernel home">JADE GOUVERNEL</a>
+      <a class="brand" href="index.html" aria-label="Jade Gouvernel home">JADE GOUVERNEL</a>
 
       <ul class="nav-links" id="site-menu" data-menu>
-        <!-- TODO: Update navigation labels here if final page sections change. -->
-        <li><a href="#home">HOME</a></li>
-        <li><a href="#gallery">GALLERY</a></li>
-        <li><a href="#portfolio">PORTFOLIO</a></li>
-        <li><a href="#about">ABOUT</a></li>
-        <li><a href="#contact">CONTACT</a></li>
-        <li>
-          <a class="shop-link" href="https://your-shopify-store-url.com" target="_blank" rel="noopener">
-            <!-- TODO: Replace with final Shopify URL -->
-            SHOP
-          </a>
+        <li><a href="index.html">HOME</a></li>
+        <li class="has-dropdown">
+          <button class="nav-button" type="button" aria-expanded="false" data-dropdown-toggle="work-menu">WORK</button>
+          <div class="dropdown-panel" id="work-menu" data-dropdown>
+            <div>
+              <p class="dropdown-label">Collections</p>
+              <a href="work.html#blue-series">Blue Series</a>
+              <a href="work.html#dream-series">Dream Series</a>
+              <a href="work.html#collage-series">Collage Series</a>
+              <a href="work.html#sun-series">Sun Series</a>
+              <a href="work.html#portrait-series">Portrait Series</a>
+              <a href="work.html#nude-series">Nude Series</a>
+            </div>
+            <div>
+              <p class="dropdown-label">Practice</p>
+              <a href="work.html#commissions">Private Commission</a>
+              <a href="work.html#ceramics">Ceramics</a>
+              <a href="work.html#film">Film</a>
+              <a href="work.html#poetry">Poetry</a>
+              <a href="work.html#singing">Singing</a>
+              <a href="work.html#cover-art">Cover Art</a>
+              <a href="work.html#body-art">Body Art</a>
+            </div>
+          </div>
         </li>
+        <li><a href="work.html">PORTFOLIO</a></li>
+        <li><a href="index.html#about">ABOUT</a></li>
+        <li class="has-dropdown">
+          <button class="nav-button" type="button" aria-expanded="false" data-dropdown-toggle="info-menu">INFO</button>
+          <div class="dropdown-panel dropdown-panel-small" id="info-menu" data-dropdown>
+            <div>
+              <p class="dropdown-label">Connect</p>
+              <a href="mailto:gouverneljade@gmail.com">Contact</a>
+              <a href="https://www.linkedin.com/in/jade-gouvernel-477006266" target="_blank" rel="noopener">LinkedIn</a>
+              <a href="#newsletter">Newsletter</a>
+            </div>
+          </div>
+        </li>
+        <!-- Shopify launch: restore this navigation item when the store is ready.
+        <li>
+          <a class="shop-link" href="https://your-shopify-store-url.com" target="_blank" rel="noopener">SHOP</a>
+        </li>
+        -->
       </ul>
     </nav>
   </header>
 
   <main id="main">
     <section class="hero section" id="home" aria-labelledby="hero-title">
-      <div class="hero-media">
-        <!-- TODO: Replace homepage hero image in assets/images and update this src/alt. -->
-        <img src="assets/images/hero-jade-work.png" alt="Colorful figurative artwork by Jade Gouvernel" loading="eager">
+      <div class="hero-media reveal">
+        <img src="assets/images/hero-jade-work.png" alt="Figurative collage artwork by Jade Gouvernel" loading="eager">
       </div>
       <div class="hero-copy reveal">
-        <p class="eyebrow">ARTIST / CURATOR / OBJECTS</p>
+        <p class="eyebrow">ARTIST / IMAGE-MAKER / MULTIDISCIPLINARY</p>
         <h1 id="hero-title">ARTIST.<br>AWAKE AND<br>DREAMING.</h1>
-        <!-- TODO: Replace subtitle when final brand copy is ready. -->
-        <p>Fine art, design, archive energy, and future collectible drops by Jade Gouvernel.</p>
+        <p>Painting, drawing, collage, photography, ceramics, film, and voice by Jade Gouvernel.</p>
         <div class="button-row">
-          <a class="button button-dark" href="https://your-shopify-store-url.com" target="_blank" rel="noopener">
-            <!-- TODO: Replace with final Shopify URL -->
-            SHOP PRINTS
-          </a>
-          <a class="button button-light" href="#gallery">VIEW GALLERY</a>
+          <a class="button button-dark" href="work.html">VIEW WORK</a>
+          <a class="button button-light" href="#about">ABOUT JADE</a>
         </div>
-      </div>
-    </section>
-
-    <section class="shop-preview section" aria-labelledby="shop-title">
-      <div class="section-heading reveal">
-        <p class="eyebrow">OFFICIAL SHOP REDIRECT</p>
-        <h2 id="shop-title">AVAILABLE PRINTS</h2>
-        <!-- TODO: Replace with final print/drop copy. -->
-        <p>Selected works previewed here. Purchases will happen through the official Shopify shop.</p>
-      </div>
-
-      <div class="product-grid">
-        <a class="product-card reveal" href="https://your-shopify-store-url.com" target="_blank" rel="noopener">
-          <!-- TODO: Replace product image/title with final Shopify-linked print. -->
-          <img src="assets/images/line-portrait-kiss.png" alt="Black and white line artwork print placeholder" loading="lazy">
-          <span class="tag">PRINT PREVIEW</span>
-          <h3>Dream Contact Study</h3>
-          <p>Available through the official shop</p>
-        </a>
-        <a class="product-card reveal" href="https://your-shopify-store-url.com" target="_blank" rel="noopener">
-          <img src="assets/images/line-portrait-profile.png" alt="Profile portrait line artwork print placeholder" loading="lazy">
-          <span class="tag">PRINT PREVIEW</span>
-          <h3>Control Figure</h3>
-          <p>Available through the official shop</p>
-        </a>
-        <a class="product-card reveal" href="https://your-shopify-store-url.com" target="_blank" rel="noopener">
-          <img src="assets/images/installation-circles.jpg" alt="Installation and circular architecture artwork print placeholder" loading="lazy">
-          <span class="tag">COLLECTION PREVIEW</span>
-          <h3>Signal Room</h3>
-          <p>Available through the official shop</p>
-        </a>
-        <a class="product-card reveal" href="https://your-shopify-store-url.com" target="_blank" rel="noopener">
-          <img src="assets/images/acid-eye.jpg" alt="Eye detail artwork print placeholder" loading="lazy">
-          <span class="tag">OBJECT PREVIEW</span>
-          <h3>Acid Eye</h3>
-          <p>Available through the official shop</p>
-        </a>
-      </div>
-
-      <div class="center-cta reveal">
-        <a class="button button-dark" href="https://your-shopify-store-url.com" target="_blank" rel="noopener">
-          <!-- TODO: Replace with final Shopify URL -->
-          SHOP ON SHOPIFY
-        </a>
-      </div>
-    </section>
-
-    <section class="gallery-section section" id="gallery" aria-labelledby="gallery-title">
-      <div class="section-heading reveal">
-        <p class="eyebrow">CURRENT / PAST / ARCHIVE</p>
-        <h2 id="gallery-title">GALLERY</h2>
-        <!-- TODO: Replace captions and categories inside each figure below. -->
-      </div>
-
-      <div class="filter-bar reveal" aria-label="Gallery filters">
-        <button class="filter-button is-active" type="button" data-filter="all">ALL</button>
-        <button class="filter-button" type="button" data-filter="painting">PAINTING</button>
-        <button class="filter-button" type="button" data-filter="drawing">DRAWING</button>
-        <button class="filter-button" type="button" data-filter="sculpture">SCULPTURE</button>
-        <button class="filter-button" type="button" data-filter="installation">INSTALLATION</button>
-        <button class="filter-button" type="button" data-filter="archive">ARCHIVE</button>
-      </div>
-
-      <div class="gallery-grid" data-gallery>
-        <figure class="gallery-item reveal tall" data-category="painting">
-          <button class="gallery-trigger" type="button" data-full="assets/images/hero-jade-work.png" data-title="Inner Weather" data-caption="Painting placeholder, final title pending.">
-            <img src="assets/images/hero-jade-work.png" alt="Figurative painting by Jade Gouvernel" loading="lazy">
-          </button>
-          <figcaption><span>Inner Weather</span><em>PAINTING</em></figcaption>
-        </figure>
-        <figure class="gallery-item reveal" data-category="drawing">
-          <button class="gallery-trigger" type="button" data-full="assets/images/line-portrait-profile.png" data-title="Control Figure" data-caption="Drawing placeholder, final title pending.">
-            <img src="assets/images/line-portrait-profile.png" alt="Black and white profile drawing by Jade Gouvernel" loading="lazy">
-          </button>
-          <figcaption><span>Control Figure</span><em>DRAWING</em></figcaption>
-        </figure>
-        <figure class="gallery-item reveal tall" data-category="drawing">
-          <button class="gallery-trigger" type="button" data-full="assets/images/line-portrait-kiss.png" data-title="Dream Contact Study" data-caption="Drawing placeholder, final title pending.">
-            <img src="assets/images/line-portrait-kiss.png" alt="Black and white expressive portrait drawing" loading="lazy">
-          </button>
-          <figcaption><span>Dream Contact Study</span><em>DRAWING</em></figcaption>
-        </figure>
-        <figure class="gallery-item reveal wide" data-category="installation">
-          <button class="gallery-trigger" type="button" data-full="assets/images/installation-circles.jpg" data-title="Signal Room" data-caption="Installation/archive placeholder, final title pending.">
-            <img src="assets/images/installation-circles.jpg" alt="Installation image with circular forms" loading="lazy">
-          </button>
-          <figcaption><span>Signal Room</span><em>INSTALLATION</em></figcaption>
-        </figure>
-        <figure class="gallery-item reveal" data-category="painting">
-          <button class="gallery-trigger" type="button" data-full="assets/images/figure-study.jpg" data-title="Blue Figure Study" data-caption="Artwork placeholder, final title pending.">
-            <img src="assets/images/figure-study.jpg" alt="Blue toned figurative artwork" loading="lazy">
-          </button>
-          <figcaption><span>Blue Figure Study</span><em>PAINTING</em></figcaption>
-        </figure>
-        <figure class="gallery-item reveal" data-category="archive">
-          <button class="gallery-trigger" type="button" data-full="assets/images/girl-with-flower.jpg" data-title="Girl With Flower" data-caption="Archive artwork placeholder, final title pending.">
-            <img src="assets/images/girl-with-flower.jpg" alt="Girl with flower artwork" loading="lazy">
-          </button>
-          <figcaption><span>Girl With Flower</span><em>ARCHIVE</em></figcaption>
-        </figure>
-        <figure class="gallery-item reveal" data-category="sculpture">
-          <button class="gallery-trigger placeholder-trigger" type="button" data-title="Object Study" data-caption="Placeholder for sculpture or object documentation.">
-            <span>IMAGE PLACEHOLDER - SCULPTURE</span>
-          </button>
-          <figcaption><span>Object Study</span><em>SCULPTURE</em></figcaption>
-        </figure>
-        <figure class="gallery-item reveal" data-category="archive">
-          <button class="gallery-trigger" type="button" data-full="assets/images/archive-room.jpg" data-title="Archive Room" data-caption="Archive placeholder, final title pending.">
-            <img src="assets/images/archive-room.jpg" alt="Archive room artwork source image" loading="lazy">
-          </button>
-          <figcaption><span>Archive Room</span><em>ARCHIVE</em></figcaption>
-        </figure>
-      </div>
-    </section>
-
-    <section class="portfolio section" id="portfolio" aria-labelledby="portfolio-title">
-      <div class="section-heading reveal">
-        <p class="eyebrow">MULTIDISCIPLINARY INDEX</p>
-        <h2 id="portfolio-title">PORTFOLIO</h2>
-        <!-- TODO: Replace portfolio descriptions and images when final categories are ready. -->
-      </div>
-
-      <div class="portfolio-grid">
-        <article class="portfolio-card reveal">
-          <img src="assets/images/hero-jade-work.png" alt="Artwork portfolio preview" loading="lazy">
-          <div>
-            <h3>ARTWORK</h3>
-            <p>Paintings, drawings, installations, and edition-ready work.</p>
-            <a href="#gallery">View work</a>
-          </div>
-        </article>
-        <article class="portfolio-card reveal">
-          <img src="assets/images/archive-study-01.jpg" alt="Books portfolio placeholder" loading="lazy">
-          <div>
-            <h3>BOOKS</h3>
-            <p>Artist books, writing, printed matter, and image-text experiments.</p>
-            <a href="#contact">View work</a>
-          </div>
-        </article>
-        <article class="portfolio-card reveal">
-          <div class="image-placeholder">IMAGE PLACEHOLDER - ACTING</div>
-          <div>
-            <h3>ACTING</h3>
-            <p>Performance, screen presence, and character-led visual projects.</p>
-            <a href="#contact">View work</a>
-          </div>
-        </article>
-        <article class="portfolio-card reveal">
-          <img src="assets/images/installation-circles.jpg" alt="Videography portfolio preview" loading="lazy">
-          <div>
-            <h3>VIDEOGRAPHY</h3>
-            <p>Moving image, process footage, installation video, and campaign visuals.</p>
-            <a href="#contact">View work</a>
-          </div>
-        </article>
-        <article class="portfolio-card reveal">
-          <div class="image-placeholder">IMAGE PLACEHOLDER - MUSIC</div>
-          <div>
-            <h3>MUSIC</h3>
-            <p>Sound, mood, collaboration, and future multidisciplinary releases.</p>
-            <a href="#contact">View work</a>
-          </div>
-        </article>
       </div>
     </section>
 
     <section class="about section" id="about" aria-labelledby="about-title">
-      <div class="about-image reveal">
-        <img src="assets/images/portrait-drawing.jpg" alt="Artwork detail used as Jade Gouvernel about section image" loading="lazy">
-      </div>
       <div class="about-copy reveal">
         <p class="eyebrow">ABOUT</p>
         <h2 id="about-title">JADE GOUVERNEL</h2>
-        <!-- TODO: Replace artist bio with final approved copy. -->
-        <p>Jade Gouvernel is a New York-based artist, curator, and gallery professional working across fine art, design, exhibitions, and multidisciplinary projects.</p>
-        <p>Her work explores tension between chaos and control, intimacy and distortion, dreams and the waking world.</p>
-        <ul class="cv-list" aria-label="CV highlights">
-          <li>Exhibiting artist</li>
-          <li>Gallery professional</li>
-          <li>Curatorial project lead</li>
-          <li>The Jaded Gallery</li>
-          <li>Fine Art and Design background</li>
-          <li>Exhibition coordination, installation, visitor engagement, and artist support</li>
-        </ul>
-        <p class="muted">Full CV available upon request.</p>
+        <p>Jade Gouvernel is a multidisciplinary artist working across painting, drawing, collage, photography, ceramics, film, and voice, based in Brooklyn, New York.</p>
+        <p>Born in South Africa to a French father and a Kenyan mother, Jade grew up between continents and cultures. Her work begins in the tension between multiple inheritances: the European and the African, the formally trained artist and the self-taught maker.</p>
+        <p>At the center of everything she makes is a recurring question: can a person consciously create themselves into existence through ritual, image, repetition, beauty, performance, and devotion?</p>
+        <a class="text-link" href="work.html">Explore the portfolio</a>
+      </div>
+      <div class="about-image reveal">
+        <img src="assets/images/google/jade-about.jpg" alt="Portrait of Jade Gouvernel from the Google Sites portfolio" loading="lazy">
       </div>
     </section>
 
-    <section class="socials section" aria-labelledby="socials-title">
+    <section class="collections-preview section" id="collections" aria-labelledby="collections-title">
       <div class="section-heading reveal">
-        <p class="eyebrow">PROCESS / DROPS / STUDIO</p>
-        <h2 id="socials-title">SOCIALS</h2>
-        <!-- TODO: Replace social copy and links with final Instagram/TikTok URLs. -->
-        <p>Follow new work, process, drops, and studio updates.</p>
+        <p class="eyebrow">COLLECTIONS</p>
+        <h2 id="collections-title">SELECTED WORKS</h2>
+        <p>Series, commissions, and multidisciplinary projects drawn from Jade's portfolio archive.</p>
       </div>
 
-      <div class="social-grid">
-        <a href="https://instagram.com/your-instagram" target="_blank" rel="noopener" class="social-tile reveal">
-          <!-- TODO: Replace with final Instagram URL -->
-          <img src="assets/images/acid-eye.jpg" alt="Instagram tile artwork detail" loading="lazy">
-          <span>INSTAGRAM</span>
-        </a>
-        <a href="https://tiktok.com/@your-tiktok" target="_blank" rel="noopener" class="social-tile reveal tall">
-          <!-- TODO: Replace with final TikTok URL -->
-          <img src="assets/images/high-eye.jpg" alt="TikTok tile artwork detail" loading="lazy">
-          <span>TIKTOK</span>
-        </a>
-        <a href="https://instagram.com/your-instagram" target="_blank" rel="noopener" class="social-tile reveal">
-          <img src="assets/images/drunk-eye.jpg" alt="Social tile artwork eye detail" loading="lazy">
-          <span>PROCESS</span>
-        </a>
-        <a href="https://your-shopify-store-url.com" target="_blank" rel="noopener" class="social-tile reveal">
-          <!-- TODO: Replace with final Shopify URL -->
-          <img src="assets/images/archive-study-02.jpg" alt="Social tile archive study" loading="lazy">
-          <span>DROPS</span>
-        </a>
+      <div class="carousel-controls reveal" aria-label="Collections carousel controls">
+        <button class="carousel-button" type="button" aria-label="Previous collection" data-carousel-prev>
+          <span aria-hidden="true">&#8592;</span>
+        </button>
+        <button class="carousel-button" type="button" aria-label="Next collection" data-carousel-next>
+          <span aria-hidden="true">&#8594;</span>
+        </button>
+      </div>
+
+      <div class="carousel-shell reveal" aria-label="Scrollable collections carousel" data-carousel>
+        <div class="carousel-track" data-carousel-track>
+          <a class="collection-card" href="work.html#blue-series">
+            <img src="assets/images/google/blue-series-01.jpg" alt="Blue Series artwork by Jade Gouvernel" loading="lazy">
+            <span>Blue Series</span>
+          </a>
+          <a class="collection-card" href="work.html#dream-series">
+            <img src="assets/images/google/dream-series-01.jpg" alt="Dream Series artwork by Jade Gouvernel" loading="lazy">
+            <span>Dream Series</span>
+          </a>
+          <a class="collection-card" href="work.html#collage-series">
+            <img src="assets/images/google/collage-series-01.jpg" alt="Collage Series artwork by Jade Gouvernel" loading="lazy">
+            <span>Collage Series</span>
+          </a>
+          <a class="collection-card" href="work.html#sun-series">
+            <img src="assets/images/google/sun-series-01.jpg" alt="Sun Series photograph by Jade Gouvernel" loading="lazy">
+            <span>Sun Series</span>
+          </a>
+          <a class="collection-card" href="work.html#portrait-series">
+            <img src="assets/images/google/portrait-series-01.jpg" alt="Portrait Series artwork by Jade Gouvernel" loading="lazy">
+            <span>Portrait Series</span>
+          </a>
+          <a class="collection-card" href="work.html#film">
+            <img src="assets/images/google/film-human-existence.jpg" alt="Film still from Jade Gouvernel portfolio" loading="lazy">
+            <span>Film</span>
+          </a>
+
+          <a class="collection-card" href="work.html#blue-series" aria-hidden="true" tabindex="-1">
+            <img src="assets/images/google/blue-series-01.jpg" alt="" loading="lazy">
+            <span>Blue Series</span>
+          </a>
+          <a class="collection-card" href="work.html#dream-series" aria-hidden="true" tabindex="-1">
+            <img src="assets/images/google/dream-series-01.jpg" alt="" loading="lazy">
+            <span>Dream Series</span>
+          </a>
+          <a class="collection-card" href="work.html#collage-series" aria-hidden="true" tabindex="-1">
+            <img src="assets/images/google/collage-series-01.jpg" alt="" loading="lazy">
+            <span>Collage Series</span>
+          </a>
+          <a class="collection-card" href="work.html#sun-series" aria-hidden="true" tabindex="-1">
+            <img src="assets/images/google/sun-series-01.jpg" alt="" loading="lazy">
+            <span>Sun Series</span>
+          </a>
+          <a class="collection-card" href="work.html#portrait-series" aria-hidden="true" tabindex="-1">
+            <img src="assets/images/google/portrait-series-01.jpg" alt="" loading="lazy">
+            <span>Portrait Series</span>
+          </a>
+          <a class="collection-card" href="work.html#film" aria-hidden="true" tabindex="-1">
+            <img src="assets/images/google/film-human-existence.jpg" alt="" loading="lazy">
+            <span>Film</span>
+          </a>
+        </div>
       </div>
     </section>
 
-    <section class="contact section" id="contact" aria-labelledby="contact-title">
-      <div class="contact-copy reveal">
-        <p class="eyebrow">CONTACT</p>
-        <h2 id="contact-title">INQUIRIES</h2>
-        <!-- TODO: Replace visible email address with final contact email. -->
-        <p>For prints, originals, portfolio requests, and curatorial inquiries.</p>
-        <a class="email-link" href="mailto:jade@example.com">jade@example.com</a>
-        <p class="muted">Until the form is connected, email is the best point of contact.</p>
+    <!-- Shopify launch: restore this section when the store is ready.
+    <section class="shop-band section" aria-labelledby="shop-title">
+      <div class="shop-band-inner reveal">
+        <p class="eyebrow">PRINTS / COMMISSIONS</p>
+        <h2 id="shop-title">WORK AVAILABLE THROUGH THE OFFICIAL SHOP</h2>
+        <a class="button button-dark" href="https://your-shopify-store-url.com" target="_blank" rel="noopener">
+          SHOP ON SHOPIFY
+        </a>
       </div>
-
-      <!-- TODO: Connect later with Formspree, Netlify Forms, EmailJS, or another email service. -->
-      <form class="contact-form reveal" data-contact-form>
-        <label for="name">Name</label>
-        <input id="name" name="name" type="text" autocomplete="name" required>
-
-        <label for="email">Email</label>
-        <input id="email" name="email" type="email" autocomplete="email" required>
-
-        <label for="topic">Inquiry</label>
-        <select id="topic" name="topic">
-          <option>Prints</option>
-          <option>Originals</option>
-          <option>Portfolio</option>
-          <option>General</option>
-        </select>
-
-        <label for="message">Message</label>
-        <textarea id="message" name="message" rows="5" required></textarea>
-
-        <button class="button button-dark" type="submit">SEND MESSAGE</button>
-        <p class="form-message" role="status" data-contact-message></p>
-      </form>
     </section>
+    -->
 
-    <section class="newsletter section" aria-labelledby="newsletter-title">
+    <section class="newsletter section" id="newsletter" aria-labelledby="newsletter-title">
       <div class="newsletter-inner reveal">
         <div>
           <p class="eyebrow">MAILING LIST</p>
-          <h2 id="newsletter-title">10% OFF YOUR FIRST PRINT ORDER</h2>
-          <!-- TODO: Replace newsletter/discount copy when final launch offer is ready. -->
-          <p>Join for drop notes, studio updates, and edition announcements.</p>
+          <h2 id="newsletter-title">STUDIO NOTES AND DROP ANNOUNCEMENTS</h2>
+          <p>Join for new work, process, editions, and future print releases.</p>
         </div>
-
-        <!-- TODO: Connect later with Shopify newsletter, Mailchimp, or Klaviyo. -->
+        <!-- TODO: Connect later with a newsletter provider. -->
         <form class="newsletter-form" data-newsletter-form>
           <label class="sr-only" for="newsletter-email">Email address</label>
           <input id="newsletter-email" name="newsletter-email" type="email" placeholder="EMAIL ADDRESS" autocomplete="email" required>
@@ -340,28 +214,18 @@
   </main>
 
   <footer class="site-footer">
-    <a class="footer-brand" href="#home">JADE GOUVERNEL</a>
+    <a class="footer-brand" href="index.html">JADE GOUVERNEL</a>
     <div class="footer-links">
+      <a href="work.html">PORTFOLIO</a>
+      <!-- Shopify launch: restore this link when the store is ready.
       <a href="https://your-shopify-store-url.com" target="_blank" rel="noopener">SHOP</a>
-      <a href="https://instagram.com/your-instagram" target="_blank" rel="noopener">INSTAGRAM</a>
-      <a href="https://tiktok.com/@your-tiktok" target="_blank" rel="noopener">TIKTOK</a>
-      <a href="mailto:jade@example.com">CONTACT</a>
+      -->
+      <a href="mailto:gouverneljade@gmail.com">CONTACT</a>
+      <a href="https://www.linkedin.com/in/jade-gouvernel-477006266" target="_blank" rel="noopener">LINKEDIN</a>
     </div>
     <p>&copy; <span data-year></span> JADE GOUVERNEL. ALL RIGHTS RESERVED.</p>
   </footer>
 
-  <div class="lightbox" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Gallery image preview" data-lightbox>
-    <button class="lightbox-close" type="button" aria-label="Close gallery preview" data-lightbox-close>&times;</button>
-    <div class="lightbox-panel">
-      <img src="" alt="" data-lightbox-image>
-      <div class="lightbox-placeholder" data-lightbox-placeholder></div>
-      <div class="lightbox-caption">
-        <h3 data-lightbox-title></h3>
-        <p data-lightbox-caption></p>
-      </div>
-    </div>
-  </div>
-
-  <script src="assets/js/main.js"></script>
+  <script src="assets/js/main.js?v=carousel-3"></script>
 </body>
 </html>

@@ -1,129 +1,125 @@
 # Jade Gouvernel Static Portfolio
 
-Static one-page artist portfolio and Shopify gateway for JADE GOUVERNEL. Built with only HTML, CSS, and vanilla JavaScript.
+Static artist portfolio and Shopify gateway for JADE GOUVERNEL. Built with only HTML, CSS, and vanilla JavaScript.
 
-## File Structure
+## Current Structure
 
-- `index.html` - all page sections, placeholder copy, links, and image references.
-- `assets/css/styles.css` - responsive layout, typography, colors, spacing, and interaction styles.
-- `assets/js/main.js` - mobile menu, smooth scroll, gallery filters, lightbox, contact/newsletter placeholder messages, and scroll reveal.
-- `assets/images/` - copied artwork assets from the provided Squarespace export.
-- `_source/` - extracted reference copy of the old Squarespace site, kept only as source material.
+- `index.html` - refined landing page with an artwork-led hero, About section, infinite collections carousel, Shopify CTA, and newsletter.
+- `work.html` - portfolio page using content and imagery from the Google Sites export.
+- `assets/css/styles.css` - responsive layout, dropdown navigation, carousel, portfolio grids, lightbox, and visual styling.
+- `assets/js/main.js` - mobile menu, clickable dropdowns, smooth scroll, lightbox, newsletter placeholder message, and scroll reveal.
+- `assets/images/` - first-round Squarespace artwork assets.
+- `assets/images/google/` - selected images copied from the Google Sites archive.
 
 ## Open Locally
 
 Open `index.html` directly in a browser. No build tools, npm packages, server, backend, or database are required.
 
+## Google Sites Content Used
+
+The second iteration uses the Google Sites export as the main content source for:
+
+- About copy
+- Blue Series
+- Dream Series
+- Collage Series
+- Sun Series
+- Portrait Series
+- Nude Series
+- Private Commission
+- Ceramics
+- Film
+- Poetry
+- Singing
+- Cover Art
+- Body Art
+- Vimeo embeds for film/video work
+- Portfolio images copied into `assets/images/google/`
+
 ## Update Shopify URL
 
-Search `index.html` for:
+Search all HTML files for:
 
 ```html
 https://your-shopify-store-url.com
 ```
 
-Replace every instance with the final Shopify store URL. Each shop-related CTA currently points to that same placeholder URL.
-
-## Update Social Links
-
-Search `index.html` for:
-
-```html
-https://instagram.com/your-instagram
-https://tiktok.com/@your-tiktok
-```
-
-Replace them with Jade's final Instagram and TikTok URLs.
+Replace every instance with the final Shopify store URL.
 
 ## Update Contact Email
 
-Search `index.html` and `assets/js/main.js` for:
+The current email from the Google Sites export is:
 
 ```html
-jade@example.com
+gouverneljade@gmail.com
 ```
 
-Replace with the final contact email. Update both the visible mail link and the no-backend form message.
+Search `index.html` and `work.html` to update it if the final contact email changes.
 
-## Replace Images
+## Update Hero Artwork
 
-Images live in `assets/images/`. The main homepage hero is:
+The homepage hero currently uses:
 
 ```html
 assets/images/hero-jade-work.png
 ```
 
-To replace it, add the new image to `assets/images/`, then update the hero `<img>` in `index.html`.
+Replace that image or update its path and alt text in `index.html` if Jade wants a different landing artwork.
 
-## Edit Artist Bio
+Google Sites Vimeo references used in the Film portfolio include:
+
+- `https://player.vimeo.com/video/632515373`
+- `https://player.vimeo.com/video/625831028`
+
+## Update Portfolio Images
+
+Images from the Google Sites export are in:
+
+```html
+assets/images/google/
+```
+
+To replace an image, add the new file to that folder and update the relevant `<img src="">` in `index.html` or `work.html`.
+
+## Update Artist Bio
 
 In `index.html`, search for:
 
 ```html
-<!-- TODO: Replace artist bio with final approved copy. -->
+<section class="about section" id="about"
 ```
 
-Update the About section text and CV highlights.
+Update the About copy there. The longer portfolio content lives in `work.html`.
 
-## Edit Gallery Items
+## Update Collections Carousel
 
 In `index.html`, search for:
 
 ```html
-<div class="gallery-grid" data-gallery>
+<div class="carousel-track">
 ```
 
-Each `<figure class="gallery-item">` controls one artwork. Update:
+The carousel is duplicated for the infinite effect. If you add, remove, or reorder cards, update both halves of the carousel.
 
-- `data-category`
-- image `src`
-- image `alt`
-- `data-title`
-- `data-caption`
-- visible caption text
+## Update Portfolio Sections
 
-Supported filter categories are `painting`, `drawing`, `sculpture`, `installation`, and `archive`.
-
-## Edit Portfolio Categories
-
-In `index.html`, search for:
+In `work.html`, each collection is a section with an ID, for example:
 
 ```html
-<div class="portfolio-grid">
+<section class="work-section section" id="blue-series">
 ```
 
-Update the five category cards: ARTWORK, BOOKS, ACTING, VIDEOGRAPHY, and MUSIC.
+Update section titles, body copy, images, lightbox captions, and navigation anchors together.
 
-## Update Newsletter Text
+## Navigation Dropdowns
 
-In `index.html`, search for:
+Navigation dropdowns are controlled by:
 
-```html
-10% OFF YOUR FIRST PRINT ORDER
-```
+- HTML: `data-dropdown-toggle` and `data-dropdown`
+- CSS: `.dropdown-panel`
+- JS: dropdown logic in `assets/js/main.js`
 
-Replace with the final discount or mailing list offer.
-
-## Update Navigation Labels
-
-In `index.html`, search for:
-
-```html
-<!-- TODO: Update navigation labels here if final page sections change. -->
-```
-
-If labels change, keep the `href="#section-id"` values aligned with the section IDs.
-
-## Connect Contact Form Later
-
-The contact form currently prevents default submission and shows a placeholder message. To connect it later, use one of:
-
-- Formspree
-- Netlify Forms
-- EmailJS
-- another email service
-
-Update the `<form>` attributes in `index.html` and remove or adjust the contact submit handler in `assets/js/main.js`.
+Keep each dropdown button's `data-dropdown-toggle` value matched to the corresponding dropdown panel ID.
 
 ## Connect Newsletter Later
 
