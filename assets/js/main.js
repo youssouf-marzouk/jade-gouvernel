@@ -74,167 +74,93 @@
   });
 
   var carousel = document.querySelector("[data-carousel]");
-  var carouselTrack = document.querySelector("[data-carousel-track]");
+  var carouselTrack = carousel ? carousel.querySelector(".swiper-wrapper") : null;
   var carouselPrev = document.querySelector("[data-carousel-prev]");
   var carouselNext = document.querySelector("[data-carousel-next]");
-  var carouselTransitioning = false;
-  var carouselAnimationFrame = null;
-  var carouselDrag = {
-    active: false,
-    dragged: false,
-    pointerId: null,
-    startX: 0,
-    startScrollLeft: 0,
-    threshold: 10
-  };
 
-  function getCarouselStep() {
-    if (!carouselTrack) return 320;
-    var firstCard = carouselTrack.querySelector(".collection-card");
-    if (!firstCard) return 320;
-    var styles = window.getComputedStyle(carouselTrack);
-    var gap = parseFloat(styles.columnGap || styles.gap || "0") || 0;
-    return firstCard.getBoundingClientRect().width + gap;
-  }
+  if (carousel && carouselTrack && typeof window.Swiper === "function") {
+    var originalCarouselSlides = Array.prototype.slice.call(carouselTrack.querySelectorAll(".swiper-slide"));
+    var carouselSlideCount = originalCarouselSlides.length;
+    var carouselMiddleSet = 2;
 
-  function getCarouselLoopPoint() {
-    if (!carouselTrack) return 0;
-    var cards = carouselTrack.querySelectorAll(".collection-card");
-    if (cards.length < 2) return 0;
-    var duplicateStart = Math.floor(cards.length / 2);
-    return cards[duplicateStart].offsetLeft - cards[0].offsetLeft;
-  }
+    if (carouselSlideCount > 0) {
+      carouselTrack.innerHTML = "";
 
-  function normalizeCarouselPosition() {
-    if (!carousel || !carouselTrack) return;
-    var loopPoint = getCarouselLoopPoint();
-    if (!loopPoint) return;
+      for (var setIndex = 0; setIndex < 5; setIndex += 1) {
+        originalCarouselSlides.forEach(function (slide, slideIndex) {
+          var clone = slide.cloneNode(true);
+          clone.setAttribute("data-carousel-slide", String(slideIndex));
 
-    if (carousel.scrollLeft >= loopPoint) {
-      carousel.scrollLeft = carousel.scrollLeft - loopPoint;
-    } else if (carousel.scrollLeft < 0) {
-      carousel.scrollLeft = carousel.scrollLeft + loopPoint;
-    }
-  }
+          if (setIndex !== carouselMiddleSet) {
+            clone.setAttribute("aria-hidden", "true");
+            clone.setAttribute("tabindex", "-1");
+          }
 
-  function moveCarousel(direction) {
-    if (!carousel || !carouselTrack || carouselTransitioning) return;
-
-    var step = getCarouselStep();
-    var loopPoint = getCarouselLoopPoint();
-
-    if (direction < 0 && carousel.scrollLeft <= 4 && loopPoint) {
-      carousel.scrollLeft = carousel.scrollLeft + loopPoint;
+          carouselTrack.appendChild(clone);
+        });
+      }
     }
 
-    var startPosition = carousel.scrollLeft;
-    var targetPosition = startPosition + (direction * step);
-    var startTime = null;
-    var duration = 650;
-    var directionClass = direction > 0 ? "is-moving-next" : "is-moving-prev";
-
-    carouselTransitioning = true;
-    carousel.classList.add("is-transitioning", directionClass);
-
-    function animateCarousel(timestamp) {
-      if (startTime === null) startTime = timestamp;
-
-      var progress = Math.min((timestamp - startTime) / duration, 1);
-      var easedProgress = 1 - Math.pow(1 - progress, 4);
-      carousel.scrollLeft = startPosition + ((targetPosition - startPosition) * easedProgress);
-
-      if (progress < 1) {
-        carouselAnimationFrame = window.requestAnimationFrame(animateCarousel);
-        return;
+    var carouselSwiper = new window.Swiper(carousel, {
+      initialSlide: carouselSlideCount * carouselMiddleSet,
+      speed: 700,
+      slidesPerView: "auto",
+      spaceBetween: 24,
+      grabCursor: true,
+      watchOverflow: false,
+      rewind: false,
+      keyboard: {
+        enabled: true,
+        onlyInViewport: true
+      },
+      a11y: {
+        containerMessage: "Selected works carousel",
+        prevSlideMessage: "Previous collection",
+        nextSlideMessage: "Next collection"
+      },
+      breakpoints: {
+        0: {
+          spaceBetween: 16
+        },
+        641: {
+          spaceBetween: 24
+        }
       }
+    });
 
-      carousel.scrollLeft = targetPosition;
-      normalizeCarouselPosition();
-      carousel.classList.remove("is-transitioning", directionClass);
-      carouselTransitioning = false;
-      carouselAnimationFrame = null;
+    function normalizeCarouselLoop() {
+      if (!carouselSlideCount) return;
+
+      var activeIndex = carouselSwiper.activeIndex;
+      var firstStableSlide = carouselSlideCount * carouselMiddleSet;
+      var lastStableSlide = firstStableSlide + carouselSlideCount - 1;
+
+      if (activeIndex >= firstStableSlide && activeIndex <= lastStableSlide) return;
+
+      var normalizedOffset = activeIndex % carouselSlideCount;
+      if (normalizedOffset < 0) normalizedOffset += carouselSlideCount;
+      carouselSwiper.slideTo(firstStableSlide + normalizedOffset, 0, false);
     }
 
-    carouselAnimationFrame = window.requestAnimationFrame(animateCarousel);
-  }
-
-  if (carousel && carouselTrack) {
-    carousel.addEventListener("scroll", function () {
-      if (carouselDrag.active || carouselTransitioning) return;
-      window.requestAnimationFrame(normalizeCarouselPosition);
+    carouselSwiper.on("slideChangeTransitionEnd", normalizeCarouselLoop);
+    carouselSwiper.on("touchEnd", function () {
+      window.setTimeout(normalizeCarouselLoop, carouselSwiper.params.speed + 20);
     });
 
-    carousel.addEventListener("pointerdown", function (event) {
-      if (carouselTransitioning) return;
-      if (event.button !== undefined && event.button !== 0) return;
-      carouselDrag.active = true;
-      carouselDrag.dragged = false;
-      carouselDrag.pointerId = event.pointerId;
-      carouselDrag.startX = event.clientX;
-      carouselDrag.startScrollLeft = carousel.scrollLeft;
-    });
+    carousel.setAttribute("data-carousel-ready", "true");
+    carousel.swiperInstance = carouselSwiper;
 
-    carousel.addEventListener("pointermove", function (event) {
-      if (!carouselDrag.active) return;
-      var delta = event.clientX - carouselDrag.startX;
-      if (!carouselDrag.dragged && Math.abs(delta) < carouselDrag.threshold) return;
+    if (carouselPrev) {
+      carouselPrev.addEventListener("click", function () {
+        carouselSwiper.slidePrev();
+      });
+    }
 
-      if (!carouselDrag.dragged) {
-        carouselDrag.dragged = true;
-        carousel.classList.add("is-dragging");
-        carousel.setPointerCapture(carouselDrag.pointerId);
-      }
-
-      event.preventDefault();
-      carousel.scrollLeft = carouselDrag.startScrollLeft - delta;
-
-      var loopPoint = getCarouselLoopPoint();
-      if (!loopPoint) return;
-      if (carousel.scrollLeft >= loopPoint) {
-        carousel.scrollLeft = carousel.scrollLeft - loopPoint;
-        carouselDrag.startScrollLeft = carouselDrag.startScrollLeft - loopPoint;
-      } else if (carousel.scrollLeft <= 0) {
-        carousel.scrollLeft = carousel.scrollLeft + loopPoint;
-        carouselDrag.startScrollLeft = carouselDrag.startScrollLeft + loopPoint;
-      }
-    });
-
-    carousel.addEventListener("pointerup", function (event) {
-      if (!carouselDrag.active) return;
-      carouselDrag.active = false;
-      carousel.classList.remove("is-dragging");
-      if (carousel.hasPointerCapture(event.pointerId)) {
-        carousel.releasePointerCapture(event.pointerId);
-      }
-      carouselDrag.pointerId = null;
-      normalizeCarouselPosition();
-    });
-
-    carousel.addEventListener("pointercancel", function () {
-      carouselDrag.active = false;
-      carouselDrag.pointerId = null;
-      carousel.classList.remove("is-dragging");
-      normalizeCarouselPosition();
-    });
-
-    carousel.addEventListener("click", function (event) {
-      if (!carouselDrag.dragged) return;
-      event.preventDefault();
-      event.stopPropagation();
-      carouselDrag.dragged = false;
-    }, true);
-  }
-
-  if (carouselPrev) {
-    carouselPrev.addEventListener("click", function () {
-      moveCarousel(-1);
-    });
-  }
-
-  if (carouselNext) {
-    carouselNext.addEventListener("click", function () {
-      moveCarousel(1);
-    });
+    if (carouselNext) {
+      carouselNext.addEventListener("click", function () {
+        carouselSwiper.slideNext();
+      });
+    }
   }
 
   var lightbox = document.querySelector("[data-lightbox]");

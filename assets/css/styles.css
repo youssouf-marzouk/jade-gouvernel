@@ -470,71 +470,26 @@ button {
 
 .carousel-shell {
   width: 100%;
-  overflow-x: auto;
-  overflow-y: hidden;
-  scroll-behavior: smooth;
-  scroll-padding-inline: clamp(1rem, 4vw, 4rem);
-  scroll-snap-type: x mandatory;
-  scrollbar-width: none;
+  overflow: hidden;
+  padding-inline: clamp(1rem, 4vw, 4rem);
   cursor: grab;
   touch-action: pan-y;
-  -webkit-overflow-scrolling: touch;
 }
 
-.carousel-shell.is-dragging {
+.carousel-shell:active {
   cursor: grabbing;
-  scroll-behavior: auto;
-  scroll-snap-type: none;
-}
-
-.carousel-shell.is-transitioning {
-  scroll-behavior: auto;
-  scroll-snap-type: none;
-}
-
-.carousel-shell.is-moving-next .collection-card {
-  animation: carousel-card-next 650ms cubic-bezier(0.22, 1, 0.36, 1);
-}
-
-.carousel-shell.is-moving-prev .collection-card {
-  animation: carousel-card-prev 650ms cubic-bezier(0.22, 1, 0.36, 1);
-}
-
-@keyframes carousel-card-next {
-  0%,
-  100% {
-    opacity: 1;
-    transform: translateX(0) scale(1);
-  }
-
-  40% {
-    opacity: 0.78;
-    transform: translateX(-10px) scale(0.99);
-  }
-}
-
-@keyframes carousel-card-prev {
-  0%,
-  100% {
-    opacity: 1;
-    transform: translateX(0) scale(1);
-  }
-
-  40% {
-    opacity: 0.78;
-    transform: translateX(10px) scale(0.99);
-  }
-}
-
-.carousel-shell::-webkit-scrollbar {
-  display: none;
 }
 
 .carousel-track {
   display: flex;
-  width: max-content;
-  gap: var(--space-md);
-  padding: 0 clamp(1rem, 4vw, 4rem) var(--space-sm);
+  align-items: stretch;
+  padding-bottom: var(--space-sm);
+  transition-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.carousel-button.swiper-button-disabled {
+  opacity: 1;
+  pointer-events: auto;
 }
 
 .collection-card {
@@ -542,7 +497,7 @@ button {
   flex: 0 0 clamp(240px, 28vw, 430px);
   display: grid;
   gap: 0.75rem;
-  scroll-snap-align: start;
+  height: auto;
   user-select: none;
   -webkit-user-drag: none;
 }
